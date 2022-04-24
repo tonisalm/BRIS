@@ -1,0 +1,14 @@
+# Reglas personalizadas Jaume I
+
+# IMPORTANTE: El rango de SID para las custom rules es 1000000-1999999
+
+# Regla 1. No me gusta, detecta tráfico ICMP que no interesa y no detecta los pings normales.
+alert icmp any any -> any any (msg: "ICMP detectado";sid:1000000;)
+# Añado esta otra que sí detecta los pings normales
+alert icmp any any -> $HOME_NET any (msg: "Ping entrante detectado";itype:8;sid:1000004;)
+# Regla 2. Las dejo por imposible. Así deberían funcionar, pero no. Si las pongo como en los apuntes tampoco van.
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:"LOCAL SYN packet flood inbound, Potential DoS";flags:S;threshold: type both,track by_dst,count 5000,seconds 5;classtype:misc-activity;sid:1000001;)
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"LOCAL SYN packet flood outbound, Potential DoS";flags:S;threshold:type both,track by_dst,count 5000,seconds 5;classtype:misc-activity;sid:1000002;)
+
+# Regla 3. Detecta conexiones SSH por puerto estándar a equipos de la red local
+alert tcp any any -> $HOME_NET 22 (msg:"Conexion SSH por puerto estandar";sid:1000003;)

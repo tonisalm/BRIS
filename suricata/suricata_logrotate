@@ -1,0 +1,21 @@
+/var/log/suricata/eve.json {
+    weekly
+    copytruncate
+    maxsize 500M
+    rotate 5
+    dateext
+    missingok
+    delaycompress
+    compress
+}
+
+/var/log/suricata/*.log {
+    weekly
+    copytruncate
+    maxsize 100M
+    rotate 5
+    dateext
+    missingok
+    delaycompress
+    compress
+}
