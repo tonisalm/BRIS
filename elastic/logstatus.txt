@@ -1,0 +1,732 @@
+Using bundled JDK: /usr/share/logstash/jdk
+Could not find log4j2 configuration at path /usr/share/logstash/config/log4j2.properties. Using default config which logs errors to the console
+[WARN ] 2022-05-02 16:44:23.366 [main] runner - DEPRECATION WARNING: The flag ["--debug"] has been deprecated, please use "--log.level=debug" instead.
+[INFO ] 2022-05-02 16:44:23.370 [main] runner - Starting Logstash {"logstash.version"=>"8.1.3", "jruby.version"=>"jruby 9.2.20.1 (2.5.8) 2021-11-30 2a2962fbd1 OpenJDK 64-Bit Server VM 11.0.14.1+1 on 11.0.14.1+1 +indy +jit [linux-x86_64]"}
+[INFO ] 2022-05-02 16:44:23.372 [main] runner - JVM bootstrap flags: [-Xms4g, -Xmx4g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djruby.compile.invokedynamic=true, -Djruby.jit.threshold=0, -Djruby.regexp.interruptible=true, -XX:+HeapDumpOnOutOfMemoryError, -Djava.security.egd=file:/dev/urandom, -Dlog4j2.isThreadContextMapInheritable=true, --add-opens=java.base/java.security=ALL-UNNAMED, --add-opens=java.base/java.io=ALL-UNNAMED, --add-opens=java.base/java.nio.channels=ALL-UNNAMED, --add-opens=java.base/sun.nio.ch=ALL-UNNAMED, --add-opens=java.management/sun.management=ALL-UNNAMED]
+[DEBUG] 2022-05-02 16:44:23.376 [main] scaffold - Found module {:module_name=>"netflow", :directory=>"/usr/share/logstash/modules/netflow/configuration"}
+[DEBUG] 2022-05-02 16:44:23.376 [main] registry - Adding plugin to the registry {:name=>"netflow", :type=>:modules, :class=>#<LogStash::Modules::Scaffold:0x7289ccf6 @directory="/usr/share/logstash/modules/netflow/configuration", @module_name="netflow", @kibana_version_parts=["6", "0", "0"]>}
+[DEBUG] 2022-05-02 16:44:23.377 [main] scaffold - Found module {:module_name=>"fb_apache", :directory=>"/usr/share/logstash/modules/fb_apache/configuration"}
+[DEBUG] 2022-05-02 16:44:23.377 [main] registry - Adding plugin to the registry {:name=>"fb_apache", :type=>:modules, :class=>#<LogStash::Modules::Scaffold:0x6ddfa4dc @directory="/usr/share/logstash/modules/fb_apache/configuration", @module_name="fb_apache", @kibana_version_parts=["6", "0", "0"]>}
+[DEBUG] 2022-05-02 16:44:23.544 [LogStash::Runner] runner - -------- Logstash Settings (* means modified) ---------
+[DEBUG] 2022-05-02 16:44:23.544 [LogStash::Runner] runner - node.name: "saturno"
+[DEBUG] 2022-05-02 16:44:23.544 [LogStash::Runner] runner - path.data: "/usr/share/logstash/data"
+[DEBUG] 2022-05-02 16:44:23.544 [LogStash::Runner] runner - modules.cli: <Java::OrgLogstashUtil::ModulesSettingArray:1 []>
+[DEBUG] 2022-05-02 16:44:23.544 [LogStash::Runner] runner - modules: []
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - modules_list: []
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - modules_variable_list: []
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - modules_setup: false
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - config.test_and_exit: false
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - config.reload.automatic: false
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - config.reload.interval: #<Java::OrgLogstashUtil::TimeValue:0x1b454570>
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - config.support_escapes: false
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - metric.collect: true
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - pipeline.id: "main"
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - pipeline.system: false
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - pipeline.workers: 4
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - pipeline.batch.size: 125
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - pipeline.batch.delay: 50
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - pipeline.unsafe_shutdown: false
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - pipeline.reloadable: true
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - pipeline.plugin_classloaders: false
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - pipeline.separate_logs: false
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - pipeline.ordered: "auto"
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - pipeline.ecs_compatibility: "v8"
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - path.plugins: []
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - config.debug: false
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - *log.level: "debug" (default: "info")
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - version: false
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - help: false
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - enable-local-plugin-development: false
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - log.format: "plain"
+[DEBUG] 2022-05-02 16:44:23.545 [LogStash::Runner] runner - api.enabled: true
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - api.http.host: "127.0.0.1"
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - api.http.port: 9600..9700
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - api.environment: "production"
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - api.auth.type: "none"
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - api.ssl.enabled: false
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - queue.type: "memory"
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - queue.drain: false
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - queue.page_capacity: 67108864
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - queue.max_bytes: 1073741824
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - queue.max_events: 0
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - queue.checkpoint.acks: 1024
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - queue.checkpoint.writes: 1024
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - queue.checkpoint.interval: 1000
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - queue.checkpoint.retry: true
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - dead_letter_queue.enable: false
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - dead_letter_queue.max_bytes: 1073741824
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - dead_letter_queue.flush_interval: 5000
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - slowlog.threshold.warn: #<Java::OrgLogstashUtil::TimeValue:0x458f44a3>
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - slowlog.threshold.info: #<Java::OrgLogstashUtil::TimeValue:0x91f9ddf>
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - slowlog.threshold.debug: #<Java::OrgLogstashUtil::TimeValue:0x60afecef>
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - slowlog.threshold.trace: #<Java::OrgLogstashUtil::TimeValue:0x37da7d8c>
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - keystore.classname: "org.logstash.secret.store.backend.JavaKeyStore"
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - keystore.file: "/usr/share/logstash/config/logstash.keystore"
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - path.queue: "/usr/share/logstash/data/queue"
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - path.dead_letter_queue: "/usr/share/logstash/data/dead_letter_queue"
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - path.settings: "/usr/share/logstash/config"
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - path.logs: "/usr/share/logstash/logs"
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - xpack.monitoring.enabled: false
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - xpack.monitoring.elasticsearch.hosts: ["http://localhost:9200"]
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - xpack.monitoring.collection.interval: #<Java::OrgLogstashUtil::TimeValue:0x12d764dc>
+[DEBUG] 2022-05-02 16:44:23.546 [LogStash::Runner] runner - xpack.monitoring.collection.timeout_interval: #<Java::OrgLogstashUtil::TimeValue:0x4d67a5d1>
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - xpack.monitoring.elasticsearch.username: "logstash_system"
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - xpack.monitoring.elasticsearch.ssl.verification_mode: "certificate"
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - xpack.monitoring.elasticsearch.sniffing: false
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - xpack.monitoring.collection.pipeline.details.enabled: true
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - xpack.monitoring.collection.config.enabled: true
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - monitoring.enabled: false
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - monitoring.elasticsearch.hosts: ["http://localhost:9200"]
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - monitoring.collection.interval: #<Java::OrgLogstashUtil::TimeValue:0x26c55dfe>
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - monitoring.collection.timeout_interval: #<Java::OrgLogstashUtil::TimeValue:0x60cdedb7>
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - monitoring.elasticsearch.username: "logstash_system"
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - monitoring.elasticsearch.ssl.verification_mode: "certificate"
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - monitoring.elasticsearch.sniffing: false
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - monitoring.collection.pipeline.details.enabled: true
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - monitoring.collection.config.enabled: true
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - node.uuid: ""
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - xpack.management.enabled: false
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - xpack.management.logstash.poll_interval: #<Java::OrgLogstashUtil::TimeValue:0x30118d63>
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - xpack.management.pipeline.id: ["main"]
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - xpack.management.elasticsearch.username: "logstash_system"
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - xpack.management.elasticsearch.hosts: ["https://localhost:9200"]
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - xpack.management.elasticsearch.ssl.verification_mode: "certificate"
+[DEBUG] 2022-05-02 16:44:23.547 [LogStash::Runner] runner - xpack.management.elasticsearch.sniffing: false
+[DEBUG] 2022-05-02 16:44:23.548 [LogStash::Runner] runner - --------------- Logstash Settings -------------------
+[DEBUG] 2022-05-02 16:44:23.570 [LogStash::Runner] multilocal - Reading pipeline configurations from YAML {:location=>"/usr/share/logstash/config/pipelines.yml"}
+[DEBUG] 2022-05-02 16:44:23.629 [LogStash::Runner] agent - Initializing API WebServer {"api.http.host"=>"127.0.0.1", "api.http.port"=>9600..9700, "api.ssl.enabled"=>false, "api.auth.type"=>"none", "api.environment"=>"production"}
+[DEBUG] 2022-05-02 16:44:23.650 [LogStash::Runner] service - [api-service] start
+[DEBUG] 2022-05-02 16:44:23.709 [LogStash::Runner] agent - Setting up metric collection
+[DEBUG] 2022-05-02 16:44:23.743 [LogStash::Runner] os - Starting {:polling_interval=>5, :polling_timeout=>120}
+[DEBUG] 2022-05-02 16:44:23.945 [LogStash::Runner] jvm - Starting {:polling_interval=>5, :polling_timeout=>120}
+[DEBUG] 2022-05-02 16:44:23.991 [LogStash::Runner] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:44:23.994 [LogStash::Runner] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:44:24.004 [LogStash::Runner] persistentqueue - Starting {:polling_interval=>5, :polling_timeout=>120}
+[DEBUG] 2022-05-02 16:44:24.012 [LogStash::Runner] deadletterqueue - Starting {:polling_interval=>5, :polling_timeout=>120}
+[DEBUG] 2022-05-02 16:44:24.261 [Agent thread] agent - Starting agent
+[DEBUG] 2022-05-02 16:44:24.270 [Api Webserver] agent - Starting API WebServer (puma)
+[DEBUG] 2022-05-02 16:44:24.313 [Agent thread] multilocal - Reading pipeline configurations from YAML {:location=>"/usr/share/logstash/config/pipelines.yml"}
+[DEBUG] 2022-05-02 16:44:24.388 [Agent thread] configpathloader - Skipping the following files while reading config since they don't match the specified glob pattern {:files=>[]}
+[DEBUG] 2022-05-02 16:44:24.388 [Api Webserver] agent - Trying to start API WebServer {:port=>9600, :ssl_enabled=>false}
+[DEBUG] 2022-05-02 16:44:24.389 [Agent thread] configpathloader - Reading config file {:config_file=>"/etc/logstash/conf.d/01-input.conf"}
+[DEBUG] 2022-05-02 16:44:24.394 [Agent thread] configpathloader - Reading config file {:config_file=>"/etc/logstash/conf.d/20-output.conf"}
+[INFO ] 2022-05-02 16:44:24.403 [Api Webserver] agent - Successfully started Logstash API endpoint {:port=>9600, :ssl_enabled=>false}
+[DEBUG] 2022-05-02 16:44:24.458 [Agent thread] agent - Converging pipelines state {:actions_count=>1}
+[DEBUG] 2022-05-02 16:44:24.469 [Converge PipelineAction::Create<main>] agent - Executing action {:action=>LogStash::PipelineAction::Create/pipeline_id:main}
+[DEBUG] 2022-05-02 16:44:24.484 [Converge PipelineAction::Create<main>] SecretStoreFactory - Attempting to exists or secret store with implementation: org.logstash.secret.store.backend.JavaKeyStore
+[DEBUG] 2022-05-02 16:44:24.820 [Converge PipelineAction::Create<main>] Reflections - going to scan these urls:
+jar:file:/usr/share/logstash/logstash-core/lib/jars/logstash-core.jar!/
+[INFO ] 2022-05-02 16:44:24.869 [Converge PipelineAction::Create<main>] Reflections - Reflections took 48 ms to scan 1 urls, producing 120 keys and 419 values 
+[DEBUG] 2022-05-02 16:44:24.874 [Converge PipelineAction::Create<main>] Reflections - expanded subtype com.fasterxml.jackson.databind.JsonDeserializer -> com.fasterxml.jackson.databind.deser.std.StdDeserializer
+[DEBUG] 2022-05-02 16:44:24.874 [Converge PipelineAction::Create<main>] Reflections - expanded subtype com.fasterxml.jackson.databind.deser.NullValueProvider -> com.fasterxml.jackson.databind.JsonDeserializer
+[DEBUG] 2022-05-02 16:44:24.874 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.io.Serializable -> com.fasterxml.jackson.databind.deser.std.StdDeserializer
+[DEBUG] 2022-05-02 16:44:24.874 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.filter.AbstractFilterable$Builder -> org.apache.logging.log4j.core.appender.AbstractAppender$Builder
+[DEBUG] 2022-05-02 16:44:24.874 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.security.SecureClassLoader -> java.net.URLClassLoader
+[DEBUG] 2022-05-02 16:44:24.874 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.lang.ClassLoader -> java.security.SecureClassLoader
+[DEBUG] 2022-05-02 16:44:24.874 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.io.Closeable -> java.net.URLClassLoader
+[DEBUG] 2022-05-02 16:44:24.874 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.lang.AutoCloseable -> java.io.Closeable
+[DEBUG] 2022-05-02 16:44:24.874 [Converge PipelineAction::Create<main>] Reflections - expanded subtype com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatVisitable -> com.fasterxml.jackson.databind.JsonSerializer
+[DEBUG] 2022-05-02 16:44:24.874 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.config.builder.api.ConfigurationBuilderFactory -> org.apache.logging.log4j.core.config.ConfigurationFactory
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.jruby.RubyObject -> org.jruby.RubyException
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.jruby.RubyBasicObject -> org.jruby.RubyObject
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.lang.Cloneable -> org.jruby.RubyBasicObject
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.jruby.runtime.builtin.IRubyObject -> org.jruby.RubyBasicObject
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.io.Serializable -> org.jruby.RubyBasicObject
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.lang.Comparable -> org.jruby.RubyBasicObject
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.jruby.runtime.marshal.CoreObjectType -> org.jruby.RubyBasicObject
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.jruby.runtime.builtin.InstanceVariables -> org.jruby.RubyBasicObject
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.jruby.runtime.builtin.InternalVariables -> org.jruby.RubyBasicObject
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype com.fasterxml.jackson.databind.ser.std.StdSerializer -> com.fasterxml.jackson.databind.ser.std.StdScalarSerializer
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype com.fasterxml.jackson.databind.JsonSerializer -> com.fasterxml.jackson.databind.ser.std.StdSerializer
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatVisitable -> com.fasterxml.jackson.databind.ser.std.StdSerializer
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype com.fasterxml.jackson.databind.jsonschema.SchemaAware -> com.fasterxml.jackson.databind.ser.std.StdSerializer
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.io.Serializable -> com.fasterxml.jackson.databind.ser.std.StdSerializer
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.lang.Throwable -> java.lang.Exception
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.io.Serializable -> java.lang.Throwable
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.util.AbstractList -> java.util.ArrayList
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.util.AbstractCollection -> java.util.AbstractList
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.util.Collection -> java.util.AbstractCollection
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.lang.Iterable -> java.util.Collection
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.util.List -> java.util.AbstractList
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.util.Collection -> java.util.List
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.util.List -> java.util.ArrayList
+[DEBUG] 2022-05-02 16:44:24.875 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.util.RandomAccess -> java.util.ArrayList
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.lang.Cloneable -> java.util.ArrayList
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.io.Serializable -> java.util.ArrayList
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.filter.AbstractFilterable -> org.apache.logging.log4j.core.appender.AbstractAppender
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.AbstractLifeCycle -> org.apache.logging.log4j.core.filter.AbstractFilterable
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.LifeCycle2 -> org.apache.logging.log4j.core.AbstractLifeCycle
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.LifeCycle -> org.apache.logging.log4j.core.LifeCycle2
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.filter.Filterable -> org.apache.logging.log4j.core.filter.AbstractFilterable
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.LifeCycle -> org.apache.logging.log4j.core.filter.Filterable
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.Appender -> org.apache.logging.log4j.core.appender.AbstractAppender
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.LifeCycle -> org.apache.logging.log4j.core.Appender
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.impl.LocationAware -> org.apache.logging.log4j.core.appender.AbstractAppender
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.lang.Exception -> java.io.IOException
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.lang.Exception -> java.lang.RuntimeException
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.AbstractLifeCycle -> org.apache.logging.log4j.core.filter.AbstractFilter
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.Filter -> org.apache.logging.log4j.core.filter.AbstractFilter
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.LifeCycle -> org.apache.logging.log4j.core.Filter
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.lang.Comparable -> java.lang.Enum
+[DEBUG] 2022-05-02 16:44:24.876 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.io.Serializable -> java.lang.Enum
+[DEBUG] 2022-05-02 16:44:24.877 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.LogEvent -> org.apache.logging.log4j.core.impl.Log4jLogEvent
+[DEBUG] 2022-05-02 16:44:24.877 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.io.Serializable -> org.apache.logging.log4j.core.LogEvent
+[DEBUG] 2022-05-02 16:44:24.877 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.util.AbstractMap -> java.util.IdentityHashMap
+[DEBUG] 2022-05-02 16:44:24.877 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.util.Map -> java.util.AbstractMap
+[DEBUG] 2022-05-02 16:44:24.877 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.util.Map -> java.util.IdentityHashMap
+[DEBUG] 2022-05-02 16:44:24.877 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.io.Serializable -> java.util.IdentityHashMap
+[DEBUG] 2022-05-02 16:44:24.877 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.lang.Cloneable -> java.util.IdentityHashMap
+[DEBUG] 2022-05-02 16:44:24.877 [Converge PipelineAction::Create<main>] Reflections - expanded subtype org.apache.logging.log4j.core.impl.LocationAwareLogEventFactory -> org.apache.logging.log4j.core.impl.LogEventFactory
+[DEBUG] 2022-05-02 16:44:24.877 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.io.Serializable -> org.apache.logging.log4j.message.Message
+[DEBUG] 2022-05-02 16:44:24.878 [Converge PipelineAction::Create<main>] Reflections - expanded subtype java.lang.RuntimeException -> java.lang.IllegalArgumentException
+[DEBUG] 2022-05-02 16:44:24.886 [Converge PipelineAction::Create<main>] SecretStoreFactory - Attempting to exists or secret store with implementation: org.logstash.secret.store.backend.JavaKeyStore
+[DEBUG] 2022-05-02 16:44:24.948 [Converge PipelineAction::Create<main>] registry - On demand adding plugin to the registry {:name=>"beats", :type=>"input", :class=>LogStash::Inputs::Beats}
+[DEBUG] 2022-05-02 16:44:24.988 [Converge PipelineAction::Create<main>] registry - On demand adding plugin to the registry {:name=>"plain", :type=>"codec", :class=>LogStash::Codecs::Plain}
+[DEBUG] 2022-05-02 16:44:25.129 [Converge PipelineAction::Create<main>] plain - config LogStash::Codecs::Plain/@id = "plain_6d6f8550-5659-4a5f-ad1d-0fadcaae331a"
+[DEBUG] 2022-05-02 16:44:25.130 [Converge PipelineAction::Create<main>] plain - config LogStash::Codecs::Plain/@enable_metric = true
+[DEBUG] 2022-05-02 16:44:25.130 [Converge PipelineAction::Create<main>] plain - config LogStash::Codecs::Plain/@charset = "UTF-8"
+[DEBUG] 2022-05-02 16:44:25.161 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@port = 5044
+[DEBUG] 2022-05-02 16:44:25.163 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@id = "223d7aa6014002b87b6d5ba123f64d5220ceafab61ceb45309b35ef978816648"
+[DEBUG] 2022-05-02 16:44:25.163 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@enable_metric = true
+[DEBUG] 2022-05-02 16:44:25.166 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@codec = <LogStash::Codecs::Plain id=>"plain_6d6f8550-5659-4a5f-ad1d-0fadcaae331a", enable_metric=>true, charset=>"UTF-8">
+[DEBUG] 2022-05-02 16:44:25.167 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@add_field = {}
+[DEBUG] 2022-05-02 16:44:25.167 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@host = "0.0.0.0"
+[DEBUG] 2022-05-02 16:44:25.167 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@ssl = false
+[DEBUG] 2022-05-02 16:44:25.168 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@ssl_certificate_authorities = []
+[DEBUG] 2022-05-02 16:44:25.168 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@add_hostname = false
+[DEBUG] 2022-05-02 16:44:25.168 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@ssl_verify_mode = "none"
+[DEBUG] 2022-05-02 16:44:25.168 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@ssl_peer_metadata = false
+[DEBUG] 2022-05-02 16:44:25.168 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@include_codec_tag = true
+[DEBUG] 2022-05-02 16:44:25.168 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@ssl_handshake_timeout = 10000
+[DEBUG] 2022-05-02 16:44:25.168 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@tls_min_version = 1
+[DEBUG] 2022-05-02 16:44:25.168 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@tls_max_version = 1.2
+[DEBUG] 2022-05-02 16:44:25.168 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@cipher_suites = ["TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384", "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"]
+[DEBUG] 2022-05-02 16:44:25.169 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@client_inactivity_timeout = 60
+[DEBUG] 2022-05-02 16:44:25.169 [Converge PipelineAction::Create<main>] beats - config LogStash::Inputs::Beats/@executor_threads = 4
+[DEBUG] 2022-05-02 16:44:25.184 [Converge PipelineAction::Create<main>] registry - On demand adding plugin to the registry {:name=>"elasticsearch", :type=>"output", :class=>LogStash::Outputs::ElasticSearch}
+[DEBUG] 2022-05-02 16:44:25.201 [Converge PipelineAction::Create<main>] plain - config LogStash::Codecs::Plain/@id = "plain_f8e40c96-342e-4c1d-afc2-542bc60656f3"
+[DEBUG] 2022-05-02 16:44:25.201 [Converge PipelineAction::Create<main>] plain - config LogStash::Codecs::Plain/@enable_metric = true
+[DEBUG] 2022-05-02 16:44:25.201 [Converge PipelineAction::Create<main>] plain - config LogStash::Codecs::Plain/@charset = "UTF-8"
+[DEBUG] 2022-05-02 16:44:25.226 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@password = <password>
+[DEBUG] 2022-05-02 16:44:25.230 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@hosts = [https://192.168.100.15:9200]
+[DEBUG] 2022-05-02 16:44:25.230 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@cacert = "/etc/logstash/certs/http_ca.crt"
+[DEBUG] 2022-05-02 16:44:25.230 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@index = "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+[DEBUG] 2022-05-02 16:44:25.230 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@manage_template = false
+[DEBUG] 2022-05-02 16:44:25.230 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@id = "29189ca9a1b268380929b5e19c5a5b1e1b146d2c92acd30db19d2573017cb45a"
+[DEBUG] 2022-05-02 16:44:25.230 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@ssl = true
+[DEBUG] 2022-05-02 16:44:25.230 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@user = "elastic"
+[DEBUG] 2022-05-02 16:44:25.230 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@enable_metric = true
+[DEBUG] 2022-05-02 16:44:25.232 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@codec = <LogStash::Codecs::Plain id=>"plain_f8e40c96-342e-4c1d-afc2-542bc60656f3", enable_metric=>true, charset=>"UTF-8">
+[DEBUG] 2022-05-02 16:44:25.232 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@workers = 1
+[DEBUG] 2022-05-02 16:44:25.232 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@ssl_certificate_verification = true
+[DEBUG] 2022-05-02 16:44:25.232 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@sniffing = false
+[DEBUG] 2022-05-02 16:44:25.232 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@sniffing_delay = 5
+[DEBUG] 2022-05-02 16:44:25.232 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@timeout = 60
+[DEBUG] 2022-05-02 16:44:25.232 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@failure_type_logging_whitelist = []
+[DEBUG] 2022-05-02 16:44:25.232 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@pool_max = 1000
+[DEBUG] 2022-05-02 16:44:25.232 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@pool_max_per_route = 100
+[DEBUG] 2022-05-02 16:44:25.232 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@resurrect_delay = 5
+[DEBUG] 2022-05-02 16:44:25.232 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@validate_after_inactivity = 10000
+[DEBUG] 2022-05-02 16:44:25.232 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@http_compression = false
+[DEBUG] 2022-05-02 16:44:25.232 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@custom_headers = {}
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@retry_initial_interval = 2
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@retry_max_interval = 64
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@data_stream_type = "logs"
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@data_stream_dataset = "generic"
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@data_stream_namespace = "default"
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@data_stream_sync_fields = true
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@data_stream_auto_routing = true
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@template_overwrite = false
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@parent = nil
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@join_field = nil
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@upsert = ""
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@doc_as_upsert = false
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@script = ""
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@script_type = "inline"
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@script_lang = "painless"
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@script_var_name = "event"
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@scripted_upsert = false
+[DEBUG] 2022-05-02 16:44:25.233 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@retry_on_conflict = 1
+[DEBUG] 2022-05-02 16:44:25.234 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@pipeline = nil
+[DEBUG] 2022-05-02 16:44:25.234 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@ilm_enabled = "auto"
+[DEBUG] 2022-05-02 16:44:25.234 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@ilm_pattern = "{now/d}-000001"
+[DEBUG] 2022-05-02 16:44:25.234 [Converge PipelineAction::Create<main>] elasticsearch - config LogStash::Outputs::ElasticSearch/@ilm_policy = "logstash-policy"
+[INFO ] 2022-05-02 16:44:25.274 [Converge PipelineAction::Create<main>] javapipeline - Pipeline `main` is configured with `pipeline.ecs_compatibility: v8` setting. All plugins in this pipeline will default to `ecs_compatibility => v8` unless explicitly configured otherwise.
+[DEBUG] 2022-05-02 16:44:25.291 [Converge PipelineAction::Create<main>] javapipeline - Starting pipeline {:pipeline_id=>"main"}
+[INFO ] 2022-05-02 16:44:25.319 [[main]-pipeline-manager] elasticsearch - New Elasticsearch output {:class=>"LogStash::Outputs::ElasticSearch", :hosts=>["https://192.168.100.15:9200"]}
+[DEBUG] 2022-05-02 16:44:25.339 [[main]-pipeline-manager] elasticsearch - Normalizing http path {:path=>nil, :normalized=>nil}
+[INFO ] 2022-05-02 16:44:25.585 [[main]-pipeline-manager] elasticsearch - Elasticsearch pool URLs updated {:changes=>{:removed=>[], :added=>[https://elastic:xxxxxx@192.168.100.15:9200/]}}
+[DEBUG] 2022-05-02 16:44:25.596 [[main]-pipeline-manager] elasticsearch - Running health check to see if an ES connection is working {:url=>"https://elastic:xxxxxx@192.168.100.15:9200/", :path=>"/"}
+[DEBUG] 2022-05-02 16:44:25.712 [[main]-pipeline-manager] RequestAuthCache - Re-using cached 'basic' auth scheme for https://192.168.100.15:9200
+[DEBUG] 2022-05-02 16:44:25.713 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection request: [route: {s}->https://192.168.100.15:9200][total available: 0; route allocated: 0 of 100; total allocated: 0 of 1000]
+[DEBUG] 2022-05-02 16:44:25.737 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection leased: [id: 0][route: {s}->https://192.168.100.15:9200][total available: 0; route allocated: 1 of 100; total allocated: 1 of 1000]
+[DEBUG] 2022-05-02 16:44:25.738 [[main]-pipeline-manager] MainClientExec - Opening connection {s}->https://192.168.100.15:9200
+[DEBUG] 2022-05-02 16:44:25.739 [[main]-pipeline-manager] DefaultHttpClientConnectionOperator - Connecting to /192.168.100.15:9200
+[DEBUG] 2022-05-02 16:44:25.739 [[main]-pipeline-manager] SSLConnectionSocketFactory - Connecting socket to /192.168.100.15:9200 with timeout 10000
+[DEBUG] 2022-05-02 16:44:25.762 [[main]-pipeline-manager] SSLConnectionSocketFactory - Enabled protocols: [TLSv1.3, TLSv1.2]
+[DEBUG] 2022-05-02 16:44:25.762 [[main]-pipeline-manager] SSLConnectionSocketFactory - Enabled cipher suites:[TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_CHACHA20_POLY1305_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_GCM_SHA384, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSV]
+[DEBUG] 2022-05-02 16:44:25.762 [[main]-pipeline-manager] SSLConnectionSocketFactory - Starting handshake
+[DEBUG] 2022-05-02 16:44:25.862 [[main]-pipeline-manager] SSLConnectionSocketFactory - Secure session established
+[DEBUG] 2022-05-02 16:44:25.862 [[main]-pipeline-manager] SSLConnectionSocketFactory -  negotiated protocol: TLSv1.3
+[DEBUG] 2022-05-02 16:44:25.862 [[main]-pipeline-manager] SSLConnectionSocketFactory -  negotiated cipher suite: TLS_AES_256_GCM_SHA384
+[DEBUG] 2022-05-02 16:44:25.862 [[main]-pipeline-manager] SSLConnectionSocketFactory -  peer principal: CN=saturno
+[DEBUG] 2022-05-02 16:44:25.862 [[main]-pipeline-manager] SSLConnectionSocketFactory -  peer alternative names: [fe80:0:0:0:a00:27ff:fe35:3e52, 192.168.100.15, localhost, saturno, 0:0:0:0:0:0:0:1, 127.0.0.1]
+[DEBUG] 2022-05-02 16:44:25.862 [[main]-pipeline-manager] SSLConnectionSocketFactory -  issuer principal: CN=Elasticsearch security auto-configuration HTTP CA
+[DEBUG] 2022-05-02 16:44:25.866 [[main]-pipeline-manager] DefaultHttpClientConnectionOperator - Connection established 192.168.100.15:37848<->192.168.100.15:9200
+[DEBUG] 2022-05-02 16:44:25.866 [[main]-pipeline-manager] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 60000
+[DEBUG] 2022-05-02 16:44:25.866 [[main]-pipeline-manager] MainClientExec - Executing request HEAD / HTTP/1.1
+[DEBUG] 2022-05-02 16:44:25.866 [[main]-pipeline-manager] MainClientExec - Target auth state: UNCHALLENGED
+[DEBUG] 2022-05-02 16:44:25.869 [[main]-pipeline-manager] MainClientExec - Proxy auth state: UNCHALLENGED
+[DEBUG] 2022-05-02 16:44:25.869 [[main]-pipeline-manager] headers - http-outgoing-0 >> HEAD / HTTP/1.1
+[DEBUG] 2022-05-02 16:44:25.869 [[main]-pipeline-manager] headers - http-outgoing-0 >> Connection: Keep-Alive
+[DEBUG] 2022-05-02 16:44:25.869 [[main]-pipeline-manager] headers - http-outgoing-0 >> Content-Type: application/json
+[DEBUG] 2022-05-02 16:44:25.869 [[main]-pipeline-manager] headers - http-outgoing-0 >> Host: 192.168.100.15:9200
+[DEBUG] 2022-05-02 16:44:25.870 [[main]-pipeline-manager] headers - http-outgoing-0 >> User-Agent: Logstash/8.1.3 (OS=Linux-5.4.0-109-generic-amd64; JVM=Eclipse Adoptium-11.0.14.1) logstash-output-elasticsearch/11.4.1
+[DEBUG] 2022-05-02 16:44:25.870 [[main]-pipeline-manager] headers - http-outgoing-0 >> Accept-Encoding: gzip,deflate
+[DEBUG] 2022-05-02 16:44:25.870 [[main]-pipeline-manager] headers - http-outgoing-0 >> Authorization: Basic ZWxhc3RpYzphZG1pbi4x
+[DEBUG] 2022-05-02 16:44:25.870 [[main]-pipeline-manager] wire - http-outgoing-0 >> "HEAD / HTTP/1.1[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.870 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.870 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.870 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Host: 192.168.100.15:9200[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.870 [[main]-pipeline-manager] wire - http-outgoing-0 >> "User-Agent: Logstash/8.1.3 (OS=Linux-5.4.0-109-generic-amd64; JVM=Eclipse Adoptium-11.0.14.1) logstash-output-elasticsearch/11.4.1[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.870 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.870 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Authorization: Basic ZWxhc3RpYzphZG1pbi4x[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.870 [[main]-pipeline-manager] wire - http-outgoing-0 >> "[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.907 [[main]-pipeline-manager] wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.907 [[main]-pipeline-manager] wire - http-outgoing-0 << "X-elastic-product: Elasticsearch[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.907 [[main]-pipeline-manager] wire - http-outgoing-0 << "content-type: application/json[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.907 [[main]-pipeline-manager] wire - http-outgoing-0 << "content-length: 531[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.907 [[main]-pipeline-manager] wire - http-outgoing-0 << "[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.908 [[main]-pipeline-manager] headers - http-outgoing-0 << HTTP/1.1 200 OK
+[DEBUG] 2022-05-02 16:44:25.909 [[main]-pipeline-manager] headers - http-outgoing-0 << X-elastic-product: Elasticsearch
+[DEBUG] 2022-05-02 16:44:25.909 [[main]-pipeline-manager] headers - http-outgoing-0 << content-type: application/json
+[DEBUG] 2022-05-02 16:44:25.909 [[main]-pipeline-manager] headers - http-outgoing-0 << content-length: 531
+[DEBUG] 2022-05-02 16:44:25.910 [[main]-pipeline-manager] MainClientExec - Connection can be kept alive indefinitely
+[DEBUG] 2022-05-02 16:44:25.910 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection [id: 0][route: {s}->https://192.168.100.15:9200] can be kept alive indefinitely
+[DEBUG] 2022-05-02 16:44:25.910 [[main]-pipeline-manager] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 0
+[DEBUG] 2022-05-02 16:44:25.910 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection released: [id: 0][route: {s}->https://192.168.100.15:9200][total available: 1; route allocated: 1 of 100; total allocated: 1 of 1000]
+[DEBUG] 2022-05-02 16:44:25.938 [[main]-pipeline-manager] RequestAuthCache - Re-using cached 'basic' auth scheme for https://192.168.100.15:9200
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection request: [route: {s}->https://192.168.100.15:9200][total available: 1; route allocated: 1 of 100; total allocated: 1 of 1000]
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection leased: [id: 0][route: {s}->https://192.168.100.15:9200][total available: 0; route allocated: 1 of 100; total allocated: 1 of 1000]
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 60000
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 60000
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] MainClientExec - Executing request GET / HTTP/1.1
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] MainClientExec - Target auth state: UNCHALLENGED
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] MainClientExec - Proxy auth state: UNCHALLENGED
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] headers - http-outgoing-0 >> GET / HTTP/1.1
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] headers - http-outgoing-0 >> Connection: Keep-Alive
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] headers - http-outgoing-0 >> Content-Type: application/json
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] headers - http-outgoing-0 >> Content-Length: 0
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] headers - http-outgoing-0 >> Host: 192.168.100.15:9200
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] headers - http-outgoing-0 >> User-Agent: Logstash/8.1.3 (OS=Linux-5.4.0-109-generic-amd64; JVM=Eclipse Adoptium-11.0.14.1) logstash-output-elasticsearch/11.4.1
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] headers - http-outgoing-0 >> Accept-Encoding: gzip,deflate
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] headers - http-outgoing-0 >> Authorization: Basic ZWxhc3RpYzphZG1pbi4x
+[DEBUG] 2022-05-02 16:44:25.939 [[main]-pipeline-manager] wire - http-outgoing-0 >> "GET / HTTP/1.1[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.940 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.940 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.940 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Content-Length: 0[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.940 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Host: 192.168.100.15:9200[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.940 [[main]-pipeline-manager] wire - http-outgoing-0 >> "User-Agent: Logstash/8.1.3 (OS=Linux-5.4.0-109-generic-amd64; JVM=Eclipse Adoptium-11.0.14.1) logstash-output-elasticsearch/11.4.1[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.940 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.940 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Authorization: Basic ZWxhc3RpYzphZG1pbi4x[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.940 [[main]-pipeline-manager] wire - http-outgoing-0 >> "[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "X-elastic-product: Elasticsearch[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "content-type: application/json[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "content-length: 531[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "[\r][\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "{[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "  "name" : "saturno",[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "  "cluster_name" : "cluster-jaumei",[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "  "cluster_uuid" : "2NRRMtIOQ4qFExkSWOq1lg",[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "  "version" : {[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "number" : "8.1.3",[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "build_flavor" : "default",[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "build_type" : "deb",[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "build_hash" : "39afaa3c0fe7db4869a161985e240bd7182d7a07",[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "build_date" : "2022-04-19T08:13:25.444693396Z",[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "build_snapshot" : false,[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "lucene_version" : "9.0.0",[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "minimum_wire_compatibility_version" : "7.17.0",[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "minimum_index_compatibility_version" : "7.0.0"[\n]"
+[DEBUG] 2022-05-02 16:44:25.941 [[main]-pipeline-manager] wire - http-outgoing-0 << "  },[\n]"
+[DEBUG] 2022-05-02 16:44:25.942 [[main]-pipeline-manager] wire - http-outgoing-0 << "  "tagline" : "You Know, for Search"[\n]"
+[DEBUG] 2022-05-02 16:44:25.942 [[main]-pipeline-manager] wire - http-outgoing-0 << "}[\n]"
+[DEBUG] 2022-05-02 16:44:25.942 [[main]-pipeline-manager] headers - http-outgoing-0 << HTTP/1.1 200 OK
+[DEBUG] 2022-05-02 16:44:25.942 [[main]-pipeline-manager] headers - http-outgoing-0 << X-elastic-product: Elasticsearch
+[DEBUG] 2022-05-02 16:44:25.942 [[main]-pipeline-manager] headers - http-outgoing-0 << content-type: application/json
+[DEBUG] 2022-05-02 16:44:25.942 [[main]-pipeline-manager] headers - http-outgoing-0 << content-length: 531
+[DEBUG] 2022-05-02 16:44:25.943 [[main]-pipeline-manager] MainClientExec - Connection can be kept alive indefinitely
+[DEBUG] 2022-05-02 16:44:25.946 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection [id: 0][route: {s}->https://192.168.100.15:9200] can be kept alive indefinitely
+[DEBUG] 2022-05-02 16:44:25.946 [[main]-pipeline-manager] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 0
+[DEBUG] 2022-05-02 16:44:25.946 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection released: [id: 0][route: {s}->https://192.168.100.15:9200][total available: 1; route allocated: 1 of 100; total allocated: 1 of 1000]
+[WARN ] 2022-05-02 16:44:25.996 [[main]-pipeline-manager] elasticsearch - Restored connection to ES instance {:url=>"https://elastic:xxxxxx@192.168.100.15:9200/"}
+[DEBUG] 2022-05-02 16:44:26.000 [[main]-pipeline-manager] RequestAuthCache - Re-using cached 'basic' auth scheme for https://192.168.100.15:9200
+[DEBUG] 2022-05-02 16:44:26.000 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection request: [route: {s}->https://192.168.100.15:9200][total available: 1; route allocated: 1 of 100; total allocated: 1 of 1000]
+[DEBUG] 2022-05-02 16:44:26.000 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection leased: [id: 0][route: {s}->https://192.168.100.15:9200][total available: 0; route allocated: 1 of 100; total allocated: 1 of 1000]
+[DEBUG] 2022-05-02 16:44:26.000 [[main]-pipeline-manager] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 60000
+[DEBUG] 2022-05-02 16:44:26.000 [[main]-pipeline-manager] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 60000
+[DEBUG] 2022-05-02 16:44:26.000 [[main]-pipeline-manager] MainClientExec - Executing request GET / HTTP/1.1
+[DEBUG] 2022-05-02 16:44:26.000 [[main]-pipeline-manager] MainClientExec - Target auth state: UNCHALLENGED
+[DEBUG] 2022-05-02 16:44:26.000 [[main]-pipeline-manager] MainClientExec - Proxy auth state: UNCHALLENGED
+[DEBUG] 2022-05-02 16:44:26.000 [[main]-pipeline-manager] headers - http-outgoing-0 >> GET / HTTP/1.1
+[DEBUG] 2022-05-02 16:44:26.000 [[main]-pipeline-manager] headers - http-outgoing-0 >> Connection: Keep-Alive
+[DEBUG] 2022-05-02 16:44:26.000 [[main]-pipeline-manager] headers - http-outgoing-0 >> Content-Type: application/json
+[DEBUG] 2022-05-02 16:44:26.000 [[main]-pipeline-manager] headers - http-outgoing-0 >> Content-Length: 0
+[DEBUG] 2022-05-02 16:44:26.000 [[main]-pipeline-manager] headers - http-outgoing-0 >> Host: 192.168.100.15:9200
+[DEBUG] 2022-05-02 16:44:26.001 [[main]-pipeline-manager] headers - http-outgoing-0 >> User-Agent: Logstash/8.1.3 (OS=Linux-5.4.0-109-generic-amd64; JVM=Eclipse Adoptium-11.0.14.1) logstash-output-elasticsearch/11.4.1
+[DEBUG] 2022-05-02 16:44:26.001 [[main]-pipeline-manager] headers - http-outgoing-0 >> Accept-Encoding: gzip,deflate
+[DEBUG] 2022-05-02 16:44:26.001 [[main]-pipeline-manager] headers - http-outgoing-0 >> Authorization: Basic ZWxhc3RpYzphZG1pbi4x
+[DEBUG] 2022-05-02 16:44:26.001 [[main]-pipeline-manager] wire - http-outgoing-0 >> "GET / HTTP/1.1[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.001 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.001 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.001 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Content-Length: 0[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.001 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Host: 192.168.100.15:9200[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.001 [[main]-pipeline-manager] wire - http-outgoing-0 >> "User-Agent: Logstash/8.1.3 (OS=Linux-5.4.0-109-generic-amd64; JVM=Eclipse Adoptium-11.0.14.1) logstash-output-elasticsearch/11.4.1[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.001 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.001 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Authorization: Basic ZWxhc3RpYzphZG1pbi4x[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.001 [[main]-pipeline-manager] wire - http-outgoing-0 >> "[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "X-elastic-product: Elasticsearch[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "content-type: application/json[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "content-length: 531[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "{[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "  "name" : "saturno",[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "  "cluster_name" : "cluster-jaumei",[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "  "cluster_uuid" : "2NRRMtIOQ4qFExkSWOq1lg",[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "  "version" : {[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "number" : "8.1.3",[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "build_flavor" : "default",[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "build_type" : "deb",[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "build_hash" : "39afaa3c0fe7db4869a161985e240bd7182d7a07",[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "build_date" : "2022-04-19T08:13:25.444693396Z",[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "build_snapshot" : false,[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "lucene_version" : "9.0.0",[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "minimum_wire_compatibility_version" : "7.17.0",[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "minimum_index_compatibility_version" : "7.0.0"[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "  },[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "  "tagline" : "You Know, for Search"[\n]"
+[DEBUG] 2022-05-02 16:44:26.002 [[main]-pipeline-manager] wire - http-outgoing-0 << "}[\n]"
+[DEBUG] 2022-05-02 16:44:26.003 [[main]-pipeline-manager] headers - http-outgoing-0 << HTTP/1.1 200 OK
+[DEBUG] 2022-05-02 16:44:26.003 [[main]-pipeline-manager] headers - http-outgoing-0 << X-elastic-product: Elasticsearch
+[DEBUG] 2022-05-02 16:44:26.003 [[main]-pipeline-manager] headers - http-outgoing-0 << content-type: application/json
+[DEBUG] 2022-05-02 16:44:26.003 [[main]-pipeline-manager] headers - http-outgoing-0 << content-length: 531
+[DEBUG] 2022-05-02 16:44:26.003 [[main]-pipeline-manager] MainClientExec - Connection can be kept alive indefinitely
+[DEBUG] 2022-05-02 16:44:26.003 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection [id: 0][route: {s}->https://192.168.100.15:9200] can be kept alive indefinitely
+[DEBUG] 2022-05-02 16:44:26.003 [[main]-pipeline-manager] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 0
+[DEBUG] 2022-05-02 16:44:26.003 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection released: [id: 0][route: {s}->https://192.168.100.15:9200][total available: 1; route allocated: 1 of 100; total allocated: 1 of 1000]
+[INFO ] 2022-05-02 16:44:26.017 [[main]-pipeline-manager] elasticsearch - Elasticsearch version determined (8.1.3) {:es_version=>8}
+[WARN ] 2022-05-02 16:44:26.021 [[main]-pipeline-manager] elasticsearch - Detected a 6.x and above cluster: the `type` event field won't be used to determine the document _type {:es_version=>8}
+[DEBUG] 2022-05-02 16:44:26.026 [[main]-pipeline-manager] RequestAuthCache - Re-using cached 'basic' auth scheme for https://192.168.100.15:9200
+[DEBUG] 2022-05-02 16:44:26.026 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection request: [route: {s}->https://192.168.100.15:9200][total available: 1; route allocated: 1 of 100; total allocated: 1 of 1000]
+[DEBUG] 2022-05-02 16:44:26.026 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection leased: [id: 0][route: {s}->https://192.168.100.15:9200][total available: 0; route allocated: 1 of 100; total allocated: 1 of 1000]
+[DEBUG] 2022-05-02 16:44:26.026 [[main]-pipeline-manager] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 60000
+[DEBUG] 2022-05-02 16:44:26.026 [[main]-pipeline-manager] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 60000
+[DEBUG] 2022-05-02 16:44:26.026 [[main]-pipeline-manager] MainClientExec - Executing request GET /_license HTTP/1.1
+[DEBUG] 2022-05-02 16:44:26.026 [[main]-pipeline-manager] MainClientExec - Target auth state: UNCHALLENGED
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] MainClientExec - Proxy auth state: UNCHALLENGED
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] headers - http-outgoing-0 >> GET /_license HTTP/1.1
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] headers - http-outgoing-0 >> Connection: Keep-Alive
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] headers - http-outgoing-0 >> Content-Type: application/json
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] headers - http-outgoing-0 >> Content-Length: 0
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] headers - http-outgoing-0 >> Host: 192.168.100.15:9200
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] headers - http-outgoing-0 >> User-Agent: Logstash/8.1.3 (OS=Linux-5.4.0-109-generic-amd64; JVM=Eclipse Adoptium-11.0.14.1) logstash-output-elasticsearch/11.4.1
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] headers - http-outgoing-0 >> Accept-Encoding: gzip,deflate
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] headers - http-outgoing-0 >> Authorization: Basic ZWxhc3RpYzphZG1pbi4x
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] wire - http-outgoing-0 >> "GET /_license HTTP/1.1[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Content-Length: 0[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Host: 192.168.100.15:9200[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] wire - http-outgoing-0 >> "User-Agent: Logstash/8.1.3 (OS=Linux-5.4.0-109-generic-amd64; JVM=Eclipse Adoptium-11.0.14.1) logstash-output-elasticsearch/11.4.1[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] wire - http-outgoing-0 >> "Authorization: Basic ZWxhc3RpYzphZG1pbi4x[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.027 [[main]-pipeline-manager] wire - http-outgoing-0 >> "[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.028 [[main]-pipeline-manager] wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "X-elastic-product: Elasticsearch[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "content-type: application/json[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "content-length: 371[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "{[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "  "license" : {[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "status" : "active",[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "uid" : "d3f954b6-6594-4d63-9917-b404d7aef3f0",[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "type" : "basic",[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "issue_date" : "2022-05-01T10:44:30.870Z",[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "issue_date_in_millis" : 1651401870870,[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "max_nodes" : 1000,[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "max_resource_units" : null,[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "issued_to" : "cluster-jaumei",[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "issuer" : "elasticsearch",[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "    "start_date_in_millis" : -1[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "  }[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] wire - http-outgoing-0 << "}[\n]"
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] headers - http-outgoing-0 << HTTP/1.1 200 OK
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] headers - http-outgoing-0 << X-elastic-product: Elasticsearch
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] headers - http-outgoing-0 << content-type: application/json
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] headers - http-outgoing-0 << content-length: 371
+[DEBUG] 2022-05-02 16:44:26.029 [[main]-pipeline-manager] MainClientExec - Connection can be kept alive indefinitely
+[DEBUG] 2022-05-02 16:44:26.030 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection [id: 0][route: {s}->https://192.168.100.15:9200] can be kept alive indefinitely
+[DEBUG] 2022-05-02 16:44:26.030 [[main]-pipeline-manager] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 0
+[DEBUG] 2022-05-02 16:44:26.030 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection released: [id: 0][route: {s}->https://192.168.100.15:9200][total available: 1; route allocated: 1 of 100; total allocated: 1 of 1000]
+[DEBUG] 2022-05-02 16:44:26.060 [[main]-pipeline-manager] elasticsearch - Not eligible for data streams because config contains one or more settings that are not compatible with data streams: {"index"=>"%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}", "manage_template"=>"false"}
+[INFO ] 2022-05-02 16:44:26.061 [[main]-pipeline-manager] elasticsearch - Config is not compliant with data streams. `data_stream => auto` resolved to `false`
+[WARN ] 2022-05-02 16:44:26.062 [[main]-pipeline-manager] elasticsearch - Elasticsearch Output configured with `ecs_compatibility => v8`, which resolved to an UNRELEASED preview of version 8.0.0 of the Elastic Common Schema. Once ECS v8 and an updated release of this plugin are publicly available, you will need to update this plugin to resolve this warning.
+[DEBUG] 2022-05-02 16:44:26.108 [Ruby-0-Thread-10: :1] RequestAuthCache - Re-using cached 'basic' auth scheme for https://192.168.100.15:9200
+[DEBUG] 2022-05-02 16:44:26.108 [Ruby-0-Thread-10: :1] PoolingHttpClientConnectionManager - Connection request: [route: {s}->https://192.168.100.15:9200][total available: 1; route allocated: 1 of 100; total allocated: 1 of 1000]
+[DEBUG] 2022-05-02 16:44:26.108 [Ruby-0-Thread-10: :1] PoolingHttpClientConnectionManager - Connection leased: [id: 0][route: {s}->https://192.168.100.15:9200][total available: 0; route allocated: 1 of 100; total allocated: 1 of 1000]
+[DEBUG] 2022-05-02 16:44:26.108 [Ruby-0-Thread-10: :1] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 60000
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 60000
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] MainClientExec - Executing request GET / HTTP/1.1
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] MainClientExec - Target auth state: UNCHALLENGED
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] MainClientExec - Proxy auth state: UNCHALLENGED
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] headers - http-outgoing-0 >> GET / HTTP/1.1
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] headers - http-outgoing-0 >> Connection: Keep-Alive
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] headers - http-outgoing-0 >> Content-Type: application/json
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] headers - http-outgoing-0 >> Content-Length: 0
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] headers - http-outgoing-0 >> Host: 192.168.100.15:9200
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] headers - http-outgoing-0 >> User-Agent: Logstash/8.1.3 (OS=Linux-5.4.0-109-generic-amd64; JVM=Eclipse Adoptium-11.0.14.1) logstash-output-elasticsearch/11.4.1
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] headers - http-outgoing-0 >> Accept-Encoding: gzip,deflate
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] headers - http-outgoing-0 >> Authorization: Basic ZWxhc3RpYzphZG1pbi4x
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 >> "GET / HTTP/1.1[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 >> "Content-Type: application/json[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 >> "Content-Length: 0[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 >> "Host: 192.168.100.15:9200[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.114 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 >> "User-Agent: Logstash/8.1.3 (OS=Linux-5.4.0-109-generic-amd64; JVM=Eclipse Adoptium-11.0.14.1) logstash-output-elasticsearch/11.4.1[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.115 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.115 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 >> "Authorization: Basic ZWxhc3RpYzphZG1pbi4x[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.115 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 >> "[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.119 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.120 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "X-elastic-product: Elasticsearch[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.120 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "content-type: application/json[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.120 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "content-length: 531[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.120 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "[\r][\n]"
+[DEBUG] 2022-05-02 16:44:26.120 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "{[\n]"
+[DEBUG] 2022-05-02 16:44:26.120 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "  "name" : "saturno",[\n]"
+[DEBUG] 2022-05-02 16:44:26.120 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "  "cluster_name" : "cluster-jaumei",[\n]"
+[DEBUG] 2022-05-02 16:44:26.120 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "  "cluster_uuid" : "2NRRMtIOQ4qFExkSWOq1lg",[\n]"
+[DEBUG] 2022-05-02 16:44:26.120 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "  "version" : {[\n]"
+[DEBUG] 2022-05-02 16:44:26.120 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "    "number" : "8.1.3",[\n]"
+[DEBUG] 2022-05-02 16:44:26.120 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "    "build_flavor" : "default",[\n]"
+[DEBUG] 2022-05-02 16:44:26.120 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "    "build_type" : "deb",[\n]"
+[DEBUG] 2022-05-02 16:44:26.120 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "    "build_hash" : "39afaa3c0fe7db4869a161985e240bd7182d7a07",[\n]"
+[DEBUG] 2022-05-02 16:44:26.122 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "    "build_date" : "2022-04-19T08:13:25.444693396Z",[\n]"
+[DEBUG] 2022-05-02 16:44:26.124 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "    "build_snapshot" : false,[\n]"
+[DEBUG] 2022-05-02 16:44:26.124 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "    "lucene_version" : "9.0.0",[\n]"
+[DEBUG] 2022-05-02 16:44:26.124 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "    "minimum_wire_compatibility_version" : "7.17.0",[\n]"
+[DEBUG] 2022-05-02 16:44:26.124 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "    "minimum_index_compatibility_version" : "7.0.0"[\n]"
+[DEBUG] 2022-05-02 16:44:26.124 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "  },[\n]"
+[DEBUG] 2022-05-02 16:44:26.124 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "  "tagline" : "You Know, for Search"[\n]"
+[DEBUG] 2022-05-02 16:44:26.124 [Ruby-0-Thread-10: :1] wire - http-outgoing-0 << "}[\n]"
+[DEBUG] 2022-05-02 16:44:26.125 [Ruby-0-Thread-10: :1] headers - http-outgoing-0 << HTTP/1.1 200 OK
+[DEBUG] 2022-05-02 16:44:26.125 [Ruby-0-Thread-10: :1] headers - http-outgoing-0 << X-elastic-product: Elasticsearch
+[DEBUG] 2022-05-02 16:44:26.125 [Ruby-0-Thread-10: :1] headers - http-outgoing-0 << content-type: application/json
+[DEBUG] 2022-05-02 16:44:26.125 [Ruby-0-Thread-10: :1] headers - http-outgoing-0 << content-length: 531
+[DEBUG] 2022-05-02 16:44:26.125 [Ruby-0-Thread-10: :1] MainClientExec - Connection can be kept alive indefinitely
+[DEBUG] 2022-05-02 16:44:26.125 [Ruby-0-Thread-10: :1] PoolingHttpClientConnectionManager - Connection [id: 0][route: {s}->https://192.168.100.15:9200] can be kept alive indefinitely
+[DEBUG] 2022-05-02 16:44:26.125 [Ruby-0-Thread-10: :1] DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 0
+[DEBUG] 2022-05-02 16:44:26.125 [Ruby-0-Thread-10: :1] PoolingHttpClientConnectionManager - Connection released: [id: 0][route: {s}->https://192.168.100.15:9200][total available: 1; route allocated: 1 of 100; total allocated: 1 of 1000]
+[INFO ] 2022-05-02 16:44:26.158 [[main]-pipeline-manager] javapipeline - Starting pipeline {:pipeline_id=>"main", "pipeline.workers"=>4, "pipeline.batch.size"=>125, "pipeline.batch.delay"=>50, "pipeline.max_inflight"=>500, "pipeline.sources"=>["/etc/logstash/conf.d/01-input.conf", "/etc/logstash/conf.d/20-output.conf"], :thread=>"#<Thread:0x4fff43e run>"}
+[DEBUG] 2022-05-02 16:44:26.575 [Ruby-0-Thread-11: :1] CompiledPipeline - Compiled output
+ P[output-elasticsearch{"hosts"=>["https://192.168.100.15:9200"], "manage_template"=>"false", "index"=>"%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}", "ssl"=>"true", "user"=>"elastic", "password"=>"admin.1", "cacert"=>"/etc/logstash/certs/http_ca.crt"}|[file]/etc/logstash/conf.d/20-output.conf:2:3:```
+elasticsearch {
+    hosts => ["https://192.168.100.15:9200"]
+    manage_template => false
+    index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+    ssl => true
+    user => "elastic"
+    password => "admin.1"
+    cacert => '/etc/logstash/certs/http_ca.crt'
+  }
+```] 
+ into 
+ org.logstash.config.ir.compiler.ComputeStepSyntaxElement@3fdc2b9c
+[DEBUG] 2022-05-02 16:44:26.580 [Ruby-0-Thread-13: :1] CompiledPipeline - Compiled output
+ P[output-elasticsearch{"hosts"=>["https://192.168.100.15:9200"], "manage_template"=>"false", "index"=>"%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}", "ssl"=>"true", "user"=>"elastic", "password"=>"admin.1", "cacert"=>"/etc/logstash/certs/http_ca.crt"}|[file]/etc/logstash/conf.d/20-output.conf:2:3:```
+elasticsearch {
+    hosts => ["https://192.168.100.15:9200"]
+    manage_template => false
+    index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+    ssl => true
+    user => "elastic"
+    password => "admin.1"
+    cacert => '/etc/logstash/certs/http_ca.crt'
+  }
+```] 
+ into 
+ org.logstash.config.ir.compiler.ComputeStepSyntaxElement@3fdc2b9c
+[DEBUG] 2022-05-02 16:44:26.576 [Ruby-0-Thread-14: :1] CompiledPipeline - Compiled output
+ P[output-elasticsearch{"hosts"=>["https://192.168.100.15:9200"], "manage_template"=>"false", "index"=>"%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}", "ssl"=>"true", "user"=>"elastic", "password"=>"admin.1", "cacert"=>"/etc/logstash/certs/http_ca.crt"}|[file]/etc/logstash/conf.d/20-output.conf:2:3:```
+elasticsearch {
+    hosts => ["https://192.168.100.15:9200"]
+    manage_template => false
+    index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+    ssl => true
+    user => "elastic"
+    password => "admin.1"
+    cacert => '/etc/logstash/certs/http_ca.crt'
+  }
+```] 
+ into 
+ org.logstash.config.ir.compiler.ComputeStepSyntaxElement@3fdc2b9c
+[DEBUG] 2022-05-02 16:44:26.581 [Ruby-0-Thread-12: :1] CompiledPipeline - Compiled output
+ P[output-elasticsearch{"hosts"=>["https://192.168.100.15:9200"], "manage_template"=>"false", "index"=>"%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}", "ssl"=>"true", "user"=>"elastic", "password"=>"admin.1", "cacert"=>"/etc/logstash/certs/http_ca.crt"}|[file]/etc/logstash/conf.d/20-output.conf:2:3:```
+elasticsearch {
+    hosts => ["https://192.168.100.15:9200"]
+    manage_template => false
+    index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+    ssl => true
+    user => "elastic"
+    password => "admin.1"
+    cacert => '/etc/logstash/certs/http_ca.crt'
+  }
+```] 
+ into 
+ org.logstash.config.ir.compiler.ComputeStepSyntaxElement@3fdc2b9c
+[INFO ] 2022-05-02 16:44:26.690 [[main]-pipeline-manager] javapipeline - Pipeline Java execution initialization time {"seconds"=>0.53}
+[INFO ] 2022-05-02 16:44:26.713 [[main]-pipeline-manager] beats - Starting input listener {:address=>"0.0.0.0:5044"}
+[INFO ] 2022-05-02 16:44:26.734 [[main]-pipeline-manager] javapipeline - Pipeline started {"pipeline.id"=>"main"}
+[DEBUG] 2022-05-02 16:44:26.743 [Converge PipelineAction::Create<main>] javapipeline - Pipeline started successfully {:pipeline_id=>"main", :thread=>"#<Thread:0x4fff43e run>"}
+[DEBUG] 2022-05-02 16:44:26.750 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[INFO ] 2022-05-02 16:44:26.785 [Agent thread] agent - Pipelines running {:count=>1, :running_pipelines=>[:main], :non_running_pipelines=>[]}
+[DEBUG] 2022-05-02 16:44:26.790 [[main]<beats] InternalLoggerFactory - Using SLF4J as the default logging framework
+[DEBUG] 2022-05-02 16:44:26.797 [[main]<beats] MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 8
+[DEBUG] 2022-05-02 16:44:26.810 [[main]<beats] InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+[DEBUG] 2022-05-02 16:44:26.810 [[main]<beats] InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+[DEBUG] 2022-05-02 16:44:26.815 [[main]<beats] NioEventLoop - -Dio.netty.noKeySetOptimization: false
+[DEBUG] 2022-05-02 16:44:26.815 [[main]<beats] NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+[DEBUG] 2022-05-02 16:44:26.827 [[main]<beats] PlatformDependent0 - -Dio.netty.noUnsafe: false
+[DEBUG] 2022-05-02 16:44:26.827 [[main]<beats] PlatformDependent0 - Java version: 11
+[DEBUG] 2022-05-02 16:44:26.829 [[main]<beats] PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+[DEBUG] 2022-05-02 16:44:26.829 [[main]<beats] PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+[DEBUG] 2022-05-02 16:44:26.830 [[main]<beats] PlatformDependent0 - java.nio.Buffer.address: available
+[DEBUG] 2022-05-02 16:44:26.830 [[main]<beats] PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+[DEBUG] 2022-05-02 16:44:26.830 [[main]<beats] PlatformDependent0 - java.nio.Bits.unaligned: available, true
+[DEBUG] 2022-05-02 16:44:26.831 [[main]<beats] PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @197d5de9
+[DEBUG] 2022-05-02 16:44:26.832 [[main]<beats] PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): unavailable
+[DEBUG] 2022-05-02 16:44:26.832 [[main]<beats] PlatformDependent - sun.misc.Unsafe: available
+[DEBUG] 2022-05-02 16:44:26.832 [[main]<beats] PlatformDependent - maxDirectMemory: 4260102144 bytes (maybe)
+[DEBUG] 2022-05-02 16:44:26.832 [[main]<beats] PlatformDependent - -Dio.netty.tmpdir: /tmp (java.io.tmpdir)
+[DEBUG] 2022-05-02 16:44:26.832 [[main]<beats] PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+[DEBUG] 2022-05-02 16:44:26.833 [[main]<beats] PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+[DEBUG] 2022-05-02 16:44:26.833 [[main]<beats] PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+[DEBUG] 2022-05-02 16:44:26.834 [[main]<beats] CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+[DEBUG] 2022-05-02 16:44:26.834 [[main]<beats] PlatformDependent - -Dio.netty.noPreferDirect: false
+[DEBUG] 2022-05-02 16:44:26.840 [[main]<beats] PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+[INFO ] 2022-05-02 16:44:26.843 [[main]<beats] Server - Starting server on port: 5044
+[DEBUG] 2022-05-02 16:44:26.861 [[main]<beats] DefaultChannelId - -Dio.netty.processId: 7292 (auto-detected)
+[DEBUG] 2022-05-02 16:44:26.863 [[main]<beats] NetUtil - -Djava.net.preferIPv4Stack: false
+[DEBUG] 2022-05-02 16:44:26.863 [[main]<beats] NetUtil - -Djava.net.preferIPv6Addresses: false
+[DEBUG] 2022-05-02 16:44:26.864 [[main]<beats] NetUtilInitializations - Loopback interface: lo (lo, 0:0:0:0:0:0:0:1%lo)
+[DEBUG] 2022-05-02 16:44:26.865 [[main]<beats] NetUtil - /proc/sys/net/core/somaxconn: 4096
+[DEBUG] 2022-05-02 16:44:26.866 [[main]<beats] DefaultChannelId - -Dio.netty.machineId: 08:00:27:ff:fe:35:3e:52 (auto-detected)
+[DEBUG] 2022-05-02 16:44:26.873 [[main]<beats] ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+[DEBUG] 2022-05-02 16:44:26.874 [[main]<beats] ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+[DEBUG] 2022-05-02 16:44:26.891 [[main]<beats] PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 8
+[DEBUG] 2022-05-02 16:44:26.891 [[main]<beats] PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 8
+[DEBUG] 2022-05-02 16:44:26.891 [[main]<beats] PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+[DEBUG] 2022-05-02 16:44:26.891 [[main]<beats] PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+[DEBUG] 2022-05-02 16:44:26.891 [[main]<beats] PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+[DEBUG] 2022-05-02 16:44:26.891 [[main]<beats] PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+[DEBUG] 2022-05-02 16:44:26.891 [[main]<beats] PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+[DEBUG] 2022-05-02 16:44:26.891 [[main]<beats] PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+[DEBUG] 2022-05-02 16:44:26.891 [[main]<beats] PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+[DEBUG] 2022-05-02 16:44:26.892 [[main]<beats] PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+[DEBUG] 2022-05-02 16:44:26.892 [[main]<beats] PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: true
+[DEBUG] 2022-05-02 16:44:26.892 [[main]<beats] PooledByteBufAllocator - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+[DEBUG] 2022-05-02 16:44:26.899 [[main]<beats] ByteBufUtil - -Dio.netty.allocator.type: pooled
+[DEBUG] 2022-05-02 16:44:26.899 [[main]<beats] ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+[DEBUG] 2022-05-02 16:44:26.899 [[main]<beats] ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+[DEBUG] 2022-05-02 16:44:29.023 [pool-4-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:44:29.023 [pool-4-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:44:31.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:44:34.040 [pool-5-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:44:34.040 [pool-5-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:44:36.746 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:44:39.046 [pool-5-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:44:39.046 [pool-5-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:44:41.746 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:44:44.054 [pool-5-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:44:44.054 [pool-5-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:44:46.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:44:49.060 [pool-5-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:44:49.060 [pool-5-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:44:51.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:44:54.068 [pool-5-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:44:54.068 [pool-5-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:44:56.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:44:59.075 [pool-5-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:44:59.076 [pool-5-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:45:01.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:45:04.084 [pool-5-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:45:04.085 [pool-5-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:45:06.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:45:09.096 [pool-5-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:45:09.097 [pool-5-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:45:11.741 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:45:14.103 [pool-4-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:45:14.104 [pool-4-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:45:16.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:45:19.110 [pool-3-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:45:19.110 [pool-3-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:45:21.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:45:24.121 [pool-5-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:45:24.121 [pool-5-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:45:26.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:45:29.128 [pool-3-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:45:29.128 [pool-3-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:45:31.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:45:34.140 [pool-4-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:45:34.140 [pool-4-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:45:36.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:45:39.147 [pool-5-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:45:39.148 [pool-5-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:45:41.741 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:45:44.153 [pool-5-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:45:44.153 [pool-5-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:45:46.741 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:45:49.162 [pool-4-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:45:49.165 [pool-4-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[DEBUG] 2022-05-02 16:45:51.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:45:54.172 [pool-5-thread-1] jvm - collector name {:name=>"ParNew"}
+[DEBUG] 2022-05-02 16:45:54.172 [pool-5-thread-1] jvm - collector name {:name=>"ConcurrentMarkSweep"}
+[WARN ] 2022-05-02 16:45:56.549 [SIGINT handler] runner - SIGINT received. Shutting down.
+[DEBUG] 2022-05-02 16:45:56.562 [LogStash::Runner] os - Stopping
+[DEBUG] 2022-05-02 16:45:56.566 [LogStash::Runner] jvm - Stopping
+[DEBUG] 2022-05-02 16:45:56.567 [LogStash::Runner] persistentqueue - Stopping
+[DEBUG] 2022-05-02 16:45:56.567 [LogStash::Runner] deadletterqueue - Stopping
+[DEBUG] 2022-05-02 16:45:56.570 [LogStash::Runner] agent - Shutting down all pipelines {:pipelines_count=>1}
+[DEBUG] 2022-05-02 16:45:56.576 [LogStash::Runner] agent - Converging pipelines state {:actions_count=>1}
+[DEBUG] 2022-05-02 16:45:56.579 [Converge PipelineAction::Stop<main>] agent - Executing action {:action=>LogStash::PipelineAction::Stop/pipeline_id:main}
+[DEBUG] 2022-05-02 16:45:56.586 [Converge PipelineAction::Stop<main>] javapipeline - Closing inputs {:pipeline_id=>"main", :thread=>"#<Thread:0x4fff43e sleep>"}
+[DEBUG] 2022-05-02 16:45:56.587 [Converge PipelineAction::Stop<main>] beats - Stopping {:plugin=>"LogStash::Inputs::Beats"}
+[DEBUG] 2022-05-02 16:45:56.588 [Converge PipelineAction::Stop<main>] Server - Server shutting down
+[DEBUG] 2022-05-02 16:45:56.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[WARN ] 2022-05-02 16:46:01.564 [Ruby-0-Thread-25: :1] runner - Received shutdown signal, but pipeline is still waiting for in-flight events
+to be processed. Sending another ^C will force quit Logstash, but this may cause
+data loss.
+[DEBUG] 2022-05-02 16:46:01.740 [logstash-pipeline-flush] PeriodicFlush - Pushing flush onto pipeline.
+[DEBUG] 2022-05-02 16:46:02.800 [Converge PipelineAction::Stop<main>] Server - Server stopped
+[DEBUG] 2022-05-02 16:46:02.802 [Converge PipelineAction::Stop<main>] javapipeline - Closed inputs {:pipeline_id=>"main", :thread=>"#<Thread:0x4fff43e sleep>"}
+[DEBUG] 2022-05-02 16:46:02.807 [[main]<beats] beats - Closing {:plugin=>"LogStash::Inputs::Beats"}
+[DEBUG] 2022-05-02 16:46:02.809 [[main]<beats] pluginmetadata - Removing metadata for plugin 223d7aa6014002b87b6d5ba123f64d5220ceafab61ceb45309b35ef978816648
+[DEBUG] 2022-05-02 16:46:02.811 [[main]-pipeline-manager] javapipeline - Input plugins stopped! Will shutdown filter/output workers. {:pipeline_id=>"main", :thread=>"#<Thread:0x4fff43e run>"}
+[DEBUG] 2022-05-02 16:46:02.816 [[main]-pipeline-manager] javapipeline - Shutdown waiting for worker thread {:pipeline_id=>"main", :thread=>"#<Thread:0x1ac18172 run>"}
+[DEBUG] 2022-05-02 16:46:02.912 [[main]-pipeline-manager] javapipeline - Shutdown waiting for worker thread {:pipeline_id=>"main", :thread=>"#<Thread:0x73355594 dead>"}
+[DEBUG] 2022-05-02 16:46:02.912 [[main]-pipeline-manager] javapipeline - Shutdown waiting for worker thread {:pipeline_id=>"main", :thread=>"#<Thread:0x44382699 dead>"}
+[DEBUG] 2022-05-02 16:46:02.912 [[main]-pipeline-manager] javapipeline - Shutdown waiting for worker thread {:pipeline_id=>"main", :thread=>"#<Thread:0x29af4c7d dead>"}
+[DEBUG] 2022-05-02 16:46:02.914 [[main]-pipeline-manager] elasticsearch - Closing {:plugin=>"LogStash::Outputs::ElasticSearch"}
+[DEBUG] 2022-05-02 16:46:02.921 [[main]-pipeline-manager] elasticsearch - Stopping sniffer
+[DEBUG] 2022-05-02 16:46:02.922 [[main]-pipeline-manager] elasticsearch - Stopping resurrectionist
+[DEBUG] 2022-05-02 16:46:03.435 [[main]-pipeline-manager] elasticsearch - Waiting for in use manticore connections
+[DEBUG] 2022-05-02 16:46:03.444 [[main]-pipeline-manager] elasticsearch - Closing adapter #<LogStash::Outputs::ElasticSearch::HttpClient::ManticoreAdapter:0x5a4721eb>
+[DEBUG] 2022-05-02 16:46:03.446 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection manager is shutting down
+[DEBUG] 2022-05-02 16:46:03.446 [[main]-pipeline-manager] DefaultManagedHttpClientConnection - http-outgoing-0: Close connection
+[DEBUG] 2022-05-02 16:46:03.448 [[main]-pipeline-manager] PoolingHttpClientConnectionManager - Connection manager shut down
+[DEBUG] 2022-05-02 16:46:03.448 [[main]-pipeline-manager] pluginmetadata - Removing metadata for plugin 29189ca9a1b268380929b5e19c5a5b1e1b146d2c92acd30db19d2573017cb45a
+[DEBUG] 2022-05-02 16:46:03.450 [[main]-pipeline-manager] javapipeline - Pipeline has been shutdown {:pipeline_id=>"main", :thread=>"#<Thread:0x4fff43e run>"}
+[INFO ] 2022-05-02 16:46:03.450 [[main]-pipeline-manager] javapipeline - Pipeline terminated {"pipeline.id"=>"main"}
+[DEBUG] 2022-05-02 16:46:03.847 [Api Webserver] agent - API WebServer has stopped running
+[INFO ] 2022-05-02 16:46:03.848 [LogStash::Runner] runner - Logstash shut down.
